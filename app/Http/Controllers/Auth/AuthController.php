@@ -11,7 +11,6 @@ use App\Models\State;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use File;
 use Illuminate\Support\Facades\Storage;
 
 class AuthController extends Controller
@@ -57,11 +56,14 @@ class AuthController extends Controller
     public function register(RegisterUserRequest $request)
     {
         $input = $request->all();
+
+        /** checking for file uploading... */
         if ($request->hasFile('profile_image')) {
             $image = $request->file('profile_image');
             $filename = time() . '.' . $image->getClientOriginalExtension();
-            // Image::make($image)->resize(300, 300)->save(public_path('/images/' . $filename));
-            $path = public_path(). '/images';
+            $path = public_path() . '/images';
+
+            /** file moving */
             if (!file_exists($path)) {
                 if (\File::makeDirectory($path, 0755, true)) {
                 }
@@ -70,8 +72,22 @@ class AuthController extends Controller
             $image->move($path, $filename);
             $input['profile_image'] = $filename;
         }
+
+        /** creating user */
         $user = User::create($input);
         Auth::login($user);
         return redirect()->route('dashboard');
+    }
+
+
+    /**
+     * Logout Process
+     *
+     * @return void
+     */
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('login');
     }
 }

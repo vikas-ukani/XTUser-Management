@@ -13,7 +13,7 @@
                             <a class="nav-link  " href="#">Welcome {{ auth()->user()->name }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="/logout">Logout</a>
+                            <a class="nav-link " href={{ route('logout') }}>Logout</a>
                         </li>
                     @else
                         <li class="nav-item">

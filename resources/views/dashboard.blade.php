@@ -11,9 +11,10 @@
 
                     <form action="{{ route('search') }}" method="GET" class="d-flex row">
                         <input type="text" name="search" required class="form-control-lg col-md-8"
-                            placeholder="Search by username, email, mobile, etc..." />
+                            placeholder="Search by Name, username, email, mobile, etc..."
+                            value="{{ old('search') ?? ($search ?? '') }}" />
                         <button type="submit" class='btn btn-success col-2'>Search</button>
-                        <a href={{route('dashboard')}} class='btn btn-warning col-2 pt-3'>Clear Search</a>
+                        <a href={{ route('dashboard') }} class='btn btn-warning col-2 pt-3'>Clear Search</a>
                     </form>
 
                     <table class="table table-bordered table-responsive-lg mt-3">
@@ -41,9 +42,14 @@
                                 <td>{{ $user->mobile }}</td>
                                 <td>
                                     <form action="{{ route('users.destroy', $user->id) }}" method="POST">
-                                        <a href="{{ route('users.show', $user->id) }}" title="show" class="btn btn-info">
+                                        <a href="{{ route('users.edit', ['user' => $user->id]) }}" title="show"
+                                            class="btn btn-dark">
                                             <i class="fas fa-eye text-success  fa-lg"></i>
                                             Edit
+                                        </a>
+                                        <a href="{{ route('users.show', $user->id) }}" class="btn btn-info">
+                                            <i class="fas fa-edit  fa-lg"></i>
+                                            Show
                                         </a>
                                         <a href="{{ route('users.edit', $user->id) }}" class="btn btn-danger">
                                             <i class="fas fa-edit  fa-lg"></i>
