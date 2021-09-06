@@ -30,7 +30,6 @@ class UserUpdateRequest extends FormRequest
             'mobile' => 'required|min:3|max:50',
             'password' => 'min:4|max:20|required_with:password_confirmation|same:password_confirmation',
             'password_confirmation' => 'min::4|max:20',
-            // 'profile_image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
             'date_of_birth' => 'required',
             'address' => 'required',
             'country_id' => 'required',

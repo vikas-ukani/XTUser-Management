@@ -36,6 +36,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/users-show/{user}', [UserController::class, 'show'])->name('users.show');
     Route::get('/users-edit/{user}', [UserController::class, 'edit'])->name('users.edit');
     Route::put('/users-update/{user}', [UserController::class, 'update'])->name('users.update');
+    Route::put('/users-update/{user}', [UserController::class, 'update'])->name('users.update');
     Route::get('/dashboard', [UserController::class, 'getUsers'])->name('dashboard');
 });
 

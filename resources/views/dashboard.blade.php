@@ -10,11 +10,11 @@
                 <div class="col-md-8">
 
                     <form action="{{ route('search') }}" method="GET" class="d-flex row">
-                        <input type="text" name="search" required class="form-control-lg col-md-8"
+                        <input type="text" name="search" required class="form-control-lg col-md-7 mx-2"
                             placeholder="Search by Name, username, email, mobile, etc..."
                             value="{{ old('search') ?? ($search ?? '') }}" />
-                        <button type="submit" class='btn btn-success col-2'>Search</button>
-                        <a href={{ route('dashboard') }} class='btn btn-warning col-2 pt-3'>Clear Search</a>
+                        <button type="submit" class='btn btn-success col-2 mx-2'>Search</button>
+                        <a href={{ route('dashboard') }} class='btn btn-warning mx-2 col-2 pt-3'>Clear Search</a>
                     </form>
 
                     <table class="table table-bordered table-responsive-lg mt-3">
@@ -40,28 +40,25 @@
                                 <td>{{ $user->username }}</td>
                                 <td>{{ $user->email }}</td>
                                 <td>{{ $user->mobile }}</td>
-                                <td>
-                                    <form action="{{ route('users.destroy', $user->id) }}" method="POST">
+                                <td >
+                                    <div class="d-flex">
                                         <a href="{{ route('users.edit', ['user' => $user->id]) }}" title="show"
-                                            class="btn btn-dark">
+                                            class="btn btn-dark mx-1" >
                                             <i class="fas fa-eye text-success  fa-lg"></i>
                                             Edit
                                         </a>
-                                        <a href="{{ route('users.show', $user->id) }}" class="btn btn-info">
+                                        <a href="{{ route('users.show', $user->id) }}" class="btn btn-info mx-1">
                                             <i class="fas fa-edit  fa-lg"></i>
                                             Show
                                         </a>
-                                        <a href="{{ route('users.edit', $user->id) }}" class="btn btn-danger">
-                                            <i class="fas fa-edit  fa-lg"></i>
-                                            Delete
-                                        </a>
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" title="delete"
-                                            style="border: none; background-color:transparent;">
-                                            <i class="fas fa-trash fa-lg text-danger"></i>
-                                        </button>
-                                    </form>
+                                        <form action="{{ route('users.destroy', $user->id) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" title="delete" class="btn btn-danger mx-1">
+                                                Delete
+                                            </button>
+                                        </form>
+                                    </div>
                                 </td>
                             </tr>
                         @endforeach

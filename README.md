@@ -17,6 +17,10 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 1) Login Page
 2) Register Page
 3) Admin Information Management.
+4) Users Listing With Search and Clear Search...
+5) Can Edit Any User
+6) Can View Any User
+7) Can Delete Any User
 
 ```
 

@@ -40,8 +40,9 @@ class RegisterUserRequest extends FormRequest
         ];
     }
 
-    public function store() {
+    /** User Can Save Directly Here */
+    public function store()
+    {
         return User::create($this->validated());
     }
-
 }

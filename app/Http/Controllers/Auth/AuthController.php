@@ -2,16 +2,15 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Models\City;
+use App\Models\User;
+use App\Models\State;
+use App\Models\Country;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginUserRequest;
-use App\Http\Requests\RegisterUserRequest;
-use App\Models\City;
-use App\Models\Country;
-use App\Models\State;
-use App\Models\User;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\RegisterUserRequest;
 
 class AuthController extends Controller
 {
@@ -28,7 +27,6 @@ class AuthController extends Controller
         }
         return redirect()->route('dashboard');
     }
-
 
     /**
      * Register View
@@ -48,7 +46,7 @@ class AuthController extends Controller
     }
 
     /**
-     * Registraton Process
+     * Registration Process
      *
      * @param RegisterUserRequest $request
      * @return void
@@ -78,7 +76,6 @@ class AuthController extends Controller
         Auth::login($user);
         return redirect()->route('dashboard');
     }
-
 
     /**
      * Logout Process

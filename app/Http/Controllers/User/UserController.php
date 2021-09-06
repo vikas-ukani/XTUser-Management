@@ -14,13 +14,23 @@ use Illuminate\Support\Facades\Storage;
 class UserController extends Controller
 {
 
-
+    /**
+     * User Fetching Process
+     *
+     * @return void
+     */
     public function getUsers()
     {
         $users = User::all();
         return view('dashboard', compact('users'));
     }
 
+    /**
+     * User Searching Process
+     *
+     * @param Request $request
+     * @return void
+     */
     public function search(Request $request)
     {
         // Get the search value from the request
@@ -38,6 +48,12 @@ class UserController extends Controller
         return view('dashboard', compact('users', 'search'));
     }
 
+    /**
+     * User Showing Process
+     *
+     * @param User $user
+     * @return void
+     */
     public function show(User $user)
     {
         $countries = Country::all();
@@ -51,6 +67,12 @@ class UserController extends Controller
         ));
     }
 
+    /**
+     * User Edit Process
+     *
+     * @param User $user
+     * @return void
+     */
     public function edit(User $user)
     {
         $countries = Country::all();
@@ -64,6 +86,13 @@ class UserController extends Controller
         ));
     }
 
+    /**
+     * User Update Process
+     *
+     * @param User $user
+     * @param UserUpdateRequest $request
+     * @return void
+     */
     public function update(User $user, UserUpdateRequest $request)
     {
         $input = $request->validated();
@@ -87,6 +116,18 @@ class UserController extends Controller
         $user = User::where('id', $user->id)->update($input);
         // dd('asd', $input);
 
+        return redirect()->route('dashboard');
+    }
+
+    /**
+     * User Delete Process
+     *
+     * @param User $user
+     * @return void
+     */
+    public function delete(User $user)
+    {
+        $user->delete();
         return redirect()->route('dashboard');
     }
 }
