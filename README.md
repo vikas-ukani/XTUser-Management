@@ -21,6 +21,7 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 5) Can Edit Any User
 6) Can View Any User
 7) Can Delete Any User
+8) User Can Logout, ETC...
 
 ```
 
@@ -31,7 +32,9 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 composer install 
 ```
 
-2. DataBase Configuration in `.env`
+#### (Dummy DB available inside `database` directory (named `xt-user-management.sql`))
+
+2. DataBase Configuration in `.env` 
 ```
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
@@ -41,27 +44,11 @@ DB_USERNAME=root
 DB_PASSWORD=
 ```
 
-3. Run Composer Script for Dump Database record creating...
-
-```
-composer run-fresh
-```
-- It will wiping and creating migrate database schema,
-- Creating Admin User and Accountant user,
-- Seeding data using DB Seeder.
+3. Import database from inside `Database` directory...
 
 
-### Admin Credentials
-
-```
-Use it for ADMIN: 
-Email : admin@admin.com
-Password: adminadmin
-
-```
-
-
+### Create Admin Accounts And Manage Users
 
 ---
 
- > Thank you.
+ > Thank you. Vikas Ukani
