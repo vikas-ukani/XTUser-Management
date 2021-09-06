@@ -9,21 +9,15 @@
 
 ## About Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects
 
 
 ### Features : 
 ```
-1) Laravel Custom registration function
-2) Laravel Custom Login with email and password
-3)There are two user types - A)Admin B)Accountant.
+1) Login Page
+2) Register Page
+3) Admin Information Management.
 
-- Back-End
-4) Admins are able to manage(Add, Delete, View, List) Product Category and Product.
-5) Accountants are able to see only the List & view part of the Product & Product category.
-- Front-End (For both guest & logged in user)
-5) List all products on the frontend
-6) Product detail in frontend
 ```
 
 ## Installation Process: 
